@@ -45,7 +45,7 @@ new GeneralDialog.BindingBuilder<UserInfoItemBinding>()
                                     return viewDataBinding.getRoot();
                                 }
                             })
-                            .theme(Rx.style.GeneralDialog)
+                            .theme(R.style.GeneralDialog)
                             .width(xxx)
                             .height(xxx)
                             .gravity(Gravity.CENTER)
