@@ -116,6 +116,16 @@ public class GeneralDialog extends Dialog {
         setCanceledOnTouchOutside(this.canceledOnTouchOutside);
         setOnShowListener(this.onShowListener);
         setOnDismissListener(this.onDismissListener);
+        if (setClickListenerInInit()) {
+            setClickListener();
+        }
+
+    }
+
+    /**
+     * 设置点击事件监听
+     */
+    protected void setClickListener() {
         if (this.onClickListener != null && clickViewsIds != null && clickViewsIds.size() > 0) {
             for (int viewId : clickViewsIds) {
                 View view = findViewById(viewId);
@@ -129,6 +139,13 @@ public class GeneralDialog extends Dialog {
                 }
             }
         }
+    }
+
+    /**
+     * 是否在初始化方法设置点击事件监听
+     */
+    public boolean setClickListenerInInit() {
+        return true;
     }
 
     /**
@@ -177,12 +194,19 @@ public class GeneralDialog extends Dialog {
             if (this.onBindingInitListener != null && this.viewDataBinding != null) {
                 this.onBindingInitListener.onInit(this, viewDataBinding.viewDataBinding);
             }
+            setClickListener();
         }
 
         @Override
         public boolean setDialogSizeInInit() {
             return false;
         }
+
+        @Override
+        public boolean setClickListenerInInit() {
+            return false;
+        }
+
     }
 
     /**
