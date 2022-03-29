@@ -38,7 +38,7 @@ new GeneralDialog.Builder()
 
 ```java
 //假设UserInfoItemBinding为弹窗的ContentView对应的ViewDataBinding类
-new GeneralDialog.BindingBuilder<JiaoziItemVoucherBinding>()
+new GeneralDialog.BindingBuilder<UserInfoItemBinding>()
                             .viewDataBinding(new GeneralDialog.ViewDataBinding<UserInfoItemBinding>(UserInfoItemBinding.inflate(getLayoutInflater())) {
                                 @Override
                                 protected View getRoot() {
